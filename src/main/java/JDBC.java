@@ -18,15 +18,13 @@ public class JDBC {
         try {
             conn = DriverManager.getConnection(Const.dbURL, Const.username, Const.password);
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            System.out.println("DB doesn't exist!");
         }
     }
 
-    public void insertInfo(String name) throws SQLException {
+    public void insertInfo(String name) throws Exception {
         String sql = "INSERT INTO thread(name) values('" + name + "')";
-
-        PreparedStatement statement = conn.prepareStatement(sql);
-
-        statement.executeUpdate();
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.executeUpdate();
     }
 }

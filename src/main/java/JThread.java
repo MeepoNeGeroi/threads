@@ -13,7 +13,7 @@ public class JThread extends Thread{
                 try {
                     JDBC.getInstance().insertInfo("Поток " + Thread.currentThread().getName() + " выполняется!");
                     fl = false;
-                } catch (SQLException throwables) {
+                } catch (Exception throwables) {
                     fl = false;
                     System.out.println("INSERT INTO thread(name) values(" + Thread.currentThread().getName() + ")");
                 }
